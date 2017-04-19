@@ -14,7 +14,7 @@ You can configure a list of sites that will be proxied through a tor-proxy to by
 ## Firefox
 **Preferences** > **Advanced** > **Network** > **Connections** > **Automatic proxy configuration URL**
 
-- input *file:///path/to/your/main.pac*
+- input `file:///path/to/your/main.pac`
 
 - enable checkbox **Proxy DNS when using SOCKS v5**
 
