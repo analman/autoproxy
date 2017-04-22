@@ -10,8 +10,8 @@ function FindProxyForURL(url, host) {
             "flibusta.net",
             "linkedin.com",
         );
-      for (var i=0; i < arr.length; i++){
-          if (dnsDomainIs(host, arr[i])) {
+      for (var key in arr) {
+          if (dnsDomainIs(host, arr[key])) {
               return "SOCKS 127.0.0.1:9050";
           }
       }
