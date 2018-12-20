@@ -1,5 +1,5 @@
 function FindProxyForURL(url, host) {
-    var sites = [
+    const sites = [
         'rutracker.org',
         'flibusta.is',
         'flibusta.net',
@@ -7,13 +7,19 @@ function FindProxyForURL(url, host) {
         'linkedin.com',
         'hdrezka.ag',
         'ivbt.ru',
+        'tdesktop.com',
+        'duosecurity.com',
+        'lnkd.in',
     ];
+
     if (dnsDomainIs(host, '.onion')) {return 'SOCKS 127.0.0.1:9050';}
     if (dnsDomainIs(host, '.i2p')) {return 'PROXY 127.0.0.1:4444';}
 
-    for (var site of sites) {
-        if (dnsDomainIs(host, site)) {return 'SOCKS 127.0.0.1:9050';}
-    }
+    var exist = function(site) {
+        return dnsDomainIs(host, site);
+    };
+    
+    if (sites.some(exist)) {return 'SOCKS 127.0.0.1:9050';}
 
     return 'DIRECT';
 }
