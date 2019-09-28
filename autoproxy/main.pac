@@ -12,14 +12,14 @@ function FindProxyForURL(url, host) {
         'lnkd.in',
     ];
 
-    if (dnsDomainIs(host, '.onion')) {return 'SOCKS 127.0.0.1:9050';}
+    if (dnsDomainIs(host, '.onion')) {return 'SOCKS 127.0.0.1:9150';}
     if (dnsDomainIs(host, '.i2p')) {return 'PROXY 127.0.0.1:4444';}
 
     var exist = function(site) {
         return dnsDomainIs(host, site);
     };
     
-    if (sites.some(exist)) {return 'SOCKS 127.0.0.1:9050';}
+    if (sites.some(exist)) {return 'SOCKS 127.0.0.1:9150';}
 
     return 'DIRECT';
 }
